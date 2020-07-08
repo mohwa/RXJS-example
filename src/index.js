@@ -1,1 +1,1 @@
-import chapter1 from '@chapters'
+import chapters from '@chapters'
