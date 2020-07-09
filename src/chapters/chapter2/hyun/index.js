@@ -1,6 +1,6 @@
 
 // example 1
-import '@chapters/chapter2/hyun/example1';
+// import '@chapters/chapter2/hyun/example1';
 
 // example 2
 // import '@chapters/chapter2/hyun/example2';
