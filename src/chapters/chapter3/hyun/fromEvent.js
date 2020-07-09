@@ -40,5 +40,4 @@ fromEvent(document.querySelector('#btn1'), 'click').subscribe(
 
     pTag.appendChild(document.createTextNode(`completed`));
     document.querySelector('#completeResult').appendChild(pTag);
-  }
-);
+  });

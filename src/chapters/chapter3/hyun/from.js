@@ -2,11 +2,11 @@ import { from } from 'rxjs';
 
 // example 3 - 1
 // from도 모든 데이터 탐색이 끝난 경우 자동으로 구독해제(complete)함수가 호출된다
-from([{value: 1}, {value: 2}, {value: 3}, {value: 4}]).subscribe(
-  value => console.log(`next ${value.value}`),
-  err => console.error(err.message),
-  () => console.log('completed')
-);
+// from([{value: 1}, {value: 2}, {value: 3}, {value: 4}]).subscribe(
+//   value => console.log(`next ${value.value}`),
+//   err => console.error(err.message),
+//   () => console.log('completed')
+// );
 
 // // example 3 - 2
 // function* forLoopGen(start, end, increment){
@@ -29,15 +29,19 @@ from([{value: 1}, {value: 2}, {value: 3}, {value: 4}]).subscribe(
 // );
 
 // // example 3 - 4
-// from(new Promise((resolve) => {
-//   console.log('promise1 function begin');
-//   setTimeout(() => resolve('promise1 resolve'), 700);
-//   console.log('promise1 function end');
-// })).subscribe(
-//   value => console.log(`[1] next ${value}`),
-//   err => console.error(`[1] err: ${err.message}`),
-//   () => console.log('[1] completed')
-// );
+console.log(1);
+
+from(new Promise((resolve) => {
+  console.log(2);
+  setTimeout(() => resolve(5), 700);
+  console.log(3);
+})).subscribe(
+  value => console.log(`[1] next ${value}`),
+  err => console.error(`[1] err: ${err.message}`),
+  () => console.log('[1] completed')
+);
+
+console.log(4);
 
 // from(new Promise((resolve, reject) => {
 //   console.log('promise2 function begin');

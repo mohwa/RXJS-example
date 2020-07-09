@@ -1,6 +1,6 @@
 
 // example 1
-import '@chapters/chapter3/hyun/create';
+// import '@chapters/chapter3/hyun/create';
 
 // example 2
 // import '@chapters/chapter3/hyun/of';
@@ -30,4 +30,4 @@ import '@chapters/chapter3/hyun/create';
 // import '@chapters/chapter3/hyun/never';
 
 // example 11
-// import '@chapters/chapter3/hyun/throwError';
+import '@chapters/chapter3/hyun/throwError';

@@ -31,3 +31,18 @@ source2$.subscribe(
   () => console.log('[2] complete')
 );
 console.log('after source2$.subscribe()');
+
+
+new Promise((resolve) => {
+  console.log(1);
+  setTimeout(resolve, 1000);
+  console.log(2);
+}).then(() => )
+
+console.log(3);
+
+new Promise((resolve) => {
+  console.log(1);
+  setTimeout(resolve, 1000);
+  console.log(2);
+});

@@ -10,10 +10,10 @@ empty().subscribe(
   () => console.log('completed')
 );
 
-interval(1000).pipe(
-  mergeMap(x => x < 5 ? of(x) : empty())
-).subscribe(
-  x => console.log(`timer(1000, 500) next: ${x}`),
-  err => console.error(`error.message: ${err.message}`),
-  () => console.log('completed')
-);
+// interval(1000).pipe(
+//   mergeMap(x => x < 5 ? of(x) : empty())
+// ).subscribe(
+//   x => console.log(`timer(1000, 500) next: ${x}`),
+//   err => console.error(`error.message: ${err.message}`),
+//   () => console.log('completed')
+// );
