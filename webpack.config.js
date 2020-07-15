@@ -25,6 +25,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.json', 'css'],
     alias: {
       '@chapters': resolve('src/chapters'),
+      '@lib': resolve('src/lib'),
     },
   },
   module: {
