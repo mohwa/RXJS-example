@@ -30,7 +30,7 @@
 // import '@chapters/chapter4/hyun/skipWhile';
 
 // example 11
-import '@chapters/chapter4/hyun/debounce';
+// import '@chapters/chapter4/hyun/debounce';
 
 // example 12
 // import '@chapters/chapter4/hyun/debounceTime';

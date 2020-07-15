@@ -19,7 +19,6 @@ export default function useState(defaultValue, component) {
         stateManager.dispose();
         effectManager.dispose();
         memoManager.dispose();
-        callbackManager.dispose();
 
         component();
       });

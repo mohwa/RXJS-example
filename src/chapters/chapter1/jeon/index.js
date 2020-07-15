@@ -106,3 +106,18 @@
 //
 // // MAIN FLOW
 // console.log('[NONBLOCK_ASYNC] NEXT MAIN FLOW');
+//
+//
+// // PROMISE 는 PROMISE 내부 서브 루틴을 모두 수행한 후, 그 제어권을 상위 루틴에게 넘겨주기때문에, 즉각적으로 MAIN FLOW 로 제어권이 넘어오지않는다.
+// // 이런 이유로 PROMISE 를 가진 서버 루틴은 NON BLOCK 함수라 말할 수 없다.
+// function BLOCK_PROMISE() {
+//   return new Promise(() => {
+//     for (let i = 0; i < 10; i++) {
+//       console.log(i);
+//     }
+//   });
+// }
+//
+// BLOCK_PROMISE();
+//
+// console.log('[BLOCK_PROMISE] NEXT MAIN FLOW');
