@@ -40,6 +40,8 @@ module.exports = {
   plugins: [
       new HtmlWebPackPlugin({
       filename: `index.html`,
+      template: 'src/index.html',
+      // inject: 'head',
     }),
   ],
   devtool: 'eval-source-map',

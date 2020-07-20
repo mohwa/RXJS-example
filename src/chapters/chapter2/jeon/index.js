@@ -41,7 +41,7 @@ function Component () {
   }, []);
 }
 
-Component();
+// Component();
 //
 // // const observable1 = Observable.create((observer) => {
 // //   observer.next(1);
