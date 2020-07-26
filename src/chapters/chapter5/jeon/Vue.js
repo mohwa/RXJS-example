@@ -1,12 +1,10 @@
-import Data from '@chapters/chapter5/jeon/Data';
-
 class Component {
   tagName = '';
-  opt = new Map();
+  options = {};
   el = null;
-  constructor(tagName, opt) {
+  constructor(tagName, options = {}) {
     this.tagName = tagName;
-    this.opt = Data.objectToMap(opt);
+    this.options = options;
 
     this.createElement();
   }
@@ -15,43 +13,71 @@ class Component {
   }
   createElement() {
     this.el = document.createElement(this.tagName);
-    this.el.innerHTML = this.opt.get('template');
+    this.el.innerHTML = this.options.template;
   }
 }
 
 export default class Vue {
-  selector = '';
-  static components = new Map();
-  constructor({ el }) {
-    this.selector = el;
+  options = {};
+  components = new Map();
+  static $$components = new Map();
+  constructor(options = {}) {
+    this.options = options;
+    this.components = this.initComponents(options.components);
+
+    this.createComponents();
   }
-  static factory(v) {
-    const o = new Vue(v);
+  $mount(selector) {
+    this.options.selector = selector;
 
-    this.createComponents(o);
-
-    return o;
+    this.createComponents();
   }
-  static createComponents(_this) {
-    const root = document.querySelector(_this.selector);
-    const fragment = new DocumentFragment();
+  initComponents(components) {
+    Object.keys(components).forEach(k => {
+      const v = components[k];
+      const com = Component.factory(k, v);
 
-    this.components.forEach((v) => {
+      this.components.set(com, com);
+    });
+
+    return this.components;
+  }
+  createComponents() {
+    const { selector, template } = this.options;
+
+    if (!selector) {
+      return false;
+    }
+
+    const root = document.querySelector(selector);
+    const { el: templateRoot } = Component.factory('div', { template });
+
+    root.appendChild(this.addComponentElements(templateRoot, Vue.$$components));
+    root.appendChild(this.addComponentElements(templateRoot, this.components));
+  }
+  addComponentElements(root, components) {
+    components.forEach((v) => {
       const { el } = v;
-      const hasElem = !!root.getElementsByTagName(el.tagName)[0];
+      const target = root.querySelectorAll(el.tagName)[0];
 
-      if (hasElem) {
-        fragment.appendChild(el);
+      if (target && target.parentNode) {
+        if (!!target) {
+          target.parentNode.replaceChild(el, target);
+        }
       }
     });
 
-    root.appendChild(fragment);
-
-    return _this;
+    return root;
   }
   static component(tagName, opt) {
     const com = Component.factory(tagName, opt);
 
-    this.components.set(com, com);
+    this.$$components.set(com, com);
+
+    return com;
   }
 }
+
+// function getDocumentFragment() {
+//   return new DocumentFragment();
+// }

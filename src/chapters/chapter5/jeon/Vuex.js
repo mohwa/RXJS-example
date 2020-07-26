@@ -7,7 +7,7 @@ class Store {
     this.state = Data.objectToMap(state);
     this.modules = Data.objectToMap(modules);
   }
-  static factory(v) {
+  static factory(v = {}) {
     return new Store(v);
   }
   commit(type, v) {
