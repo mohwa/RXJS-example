@@ -21,7 +21,7 @@
 // import '@chapters/chapter3/hyun/interval';
 
 // example 8
-// import '@chapters/chapter3/hyun/timer';
+import '@chapters/chapter3/hyun/timer';
 
 // example 9
 // import '@chapters/chapter3/hyun/empty';
